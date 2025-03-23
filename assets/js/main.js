@@ -93,7 +93,10 @@ function scrollspy(event) {
         targetElement.offsetTop <= topminus &&
         targetElement.offsetTop + targetElement.offsetHeight > topminus
       ) {
-        document.querySelector(".ic-page-scroll").classList.remove("active");
+        let activeLink = document.querySelector(".ic-page-scroll.active");
+        if (activeLink) {
+          activeLink.classList.remove("active");
+        }
         currentLink.classList.add("active");
       } else {
         currentLink.classList.remove("active");
