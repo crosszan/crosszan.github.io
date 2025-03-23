@@ -181,50 +181,6 @@ tabs.forEach((tab) => {
   });
 });
 
-// Portfolio filter
-const portfolioFilters = document.querySelectorAll(".portfolio-menu button");
-
-portfolioFilters.forEach((filter) => {
-  filter.addEventListener("click", function () {
-    let btn = portfolioFilters[0];
-
-    while (btn) {
-      if (btn.tagName === "BUTTON") {
-        btn.classList.remove("active");
-      }
-
-      btn = btn.nextSibling;
-    }
-
-    this.classList.add("active");
-
-    let selected = filter.getAttribute("data-filter"),
-      itemsToHide = document.querySelectorAll(
-        '.portfolio-grid .portfolio :not([data-filter="' + selected + '"])'
-      ),
-      itemsToShow = document.querySelectorAll(
-        '.portfolio-grid .portfolio [data-filter="' + selected + '"]'
-      );
-
-    if (selected == "all") {
-      itemsToHide = [];
-      itemsToShow = document.querySelectorAll(
-        ".portfolio-grid .portfolio [data-filter]"
-      );
-    }
-
-    itemsToHide.forEach((el) => {
-      el.parentElement.classList.add("hide");
-      el.parentElement.classList.remove("show");
-    });
-
-    itemsToShow.forEach((el) => {
-      el.parentElement.classList.remove("hide");
-      el.parentElement.classList.add("show");
-    });
-  });
-});
-
 // Scroll to top
 var st = document.querySelector("[data-web-trigger=scroll-top]");
 
